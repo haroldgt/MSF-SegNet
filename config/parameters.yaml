@@ -1,0 +1,83 @@
+# Config format schema number
+format_version: 4
+
+###################
+## Model options
+model_params:
+  num_class: 20
+  output_shape:  # a pointcloud be divided into grids quantity
+    - 480  
+    - 360  
+    - 32  
+
+  fea_dim: 12  # feature info dim of a point
+  pointNet_fea_dim: 1 # feature info dim of a point
+  num_input_features: 32 # <=32. input feature info dim be compressed before Asymm_3d_spconv net
+  base_size: 64  # basic work unit of net
+
+
+###################
+## Dataset options
+dataset_params:
+  label_mapping: "./config/datasets_labels_and_other_properties/semantic-kitti.yaml"
+  labelData_bits: 32 # 16,32 - bits number of label data.
+  fixed_volume_space: True
+  max_volume_space:  # max cylinder range
+    - 50  # 50 - set max r value
+    - 3.1415926  # π - set max theta angle
+    - 2  # 2 - set max z value
+  min_volume_space:  # min cylinder range
+    - 0  # 0 - set min r value
+    - -3.1415926  # -π - set min theta angle
+    - -4  # -4 - set min z value
+
+  ignore_label: 0
+  return_test: False
+
+
+###################
+## Data_loader options
+train_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/semantickitti/sequences"  # /Extra1/SemanticSeg3D_dataset/sequences
+  imageset: "train"
+  return_ref: True
+  batch_size: 1
+  shuffle: True # True
+  num_workers: 16 #4 improve gpu utilization rate
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate
+
+val_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/semantickitti/sequences"  # /Extra1/SemanticSeg3D_dataset/sequences
+  imageset: "val"
+  return_ref: True
+  batch_size: 1
+  shuffle: False
+  num_workers: 16 #4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate
+  
+test_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/semantickitti/sequences"  # /Extra1/SemanticSeg3D_dataset/sequences
+  imageset: "test" # ytest - test dataset have real labels. test - indicate dataset haven't real labels.
+  return_ref: True
+  batch_size: 1
+  shuffle: False
+  num_workers: 16 #4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate
+
+
+###################
+## Train params
+train_params:
+## model_load_path: "./model_load_dir/model_load.pt"
+  model_load_path: "./save_model/pretrained/model_save.pt"
+  model_save_path: "./save_model/semanticKITTI/model_save.pt"
+  csv_save_path: "./save_model/model_semanticKITTI_save.csv"
+  max_num_epochs: 200  # train epoch
+  val_every_n_steps: 4599  # 4599
+  learning_rate: 0.001

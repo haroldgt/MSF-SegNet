@@ -1,0 +1,63 @@
+# This file is covered by the LICENSE file in the root of this project.
+# name: "sany"
+labels:
+  0: "unlabeled"
+  1: "windrow"
+  2: "clapboard"
+  3: "ground"
+  4: "loader"
+  5: "road-cone"
+  6: "person"
+  9: "other"
+color_map: # bgr
+  0: [0, 0, 0]
+  1: [0, 0, 255]
+  2: [245, 150, 100]
+  3: [245, 230, 100]
+  4: [250, 80, 100]
+  5: [150, 60, 30]
+  6: [255, 0, 0]
+  9: [180, 30, 80]
+content: # as a ratio with the total number of points
+  0: 0.0
+  1: 0.1
+  2: 0.2
+  3: 0.1
+  4: 0.2
+  5: 0.2
+  6: 0.1
+  9: 0.1
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+learning_map:
+  0: 0 
+  1: 1     
+  2: 2    
+  3: 3     
+  4: 4     
+  5: 5     
+  6: 6     
+  9: 0
+learning_map_inv: # inverse of previous map
+  0: 0      
+  1: 1     
+  2: 2    
+  3: 3     
+  4: 4     
+  5: 5     
+  6: 6
+learning_ignore: # Ignore classes
+  0: True      # "unlabeled", and others ignored
+  1: False     
+  2: False    
+  3: False    
+  4: False     
+  5: False   
+  6: False 
+split: # sequence numbers
+  train:
+    - 00
+  valid:
+    - 01
+  test:
+    - 02

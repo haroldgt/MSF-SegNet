@@ -1,0 +1,84 @@
+# Config format schema number
+format_version: 4
+
+###################
+## Model options
+model_params:
+  num_class: 7 #20
+  output_shape:
+    - 480
+    - 360
+    - 32
+
+  fea_dim: 12
+  pointNet_fea_dim: 1 # feature info dim of a point
+  num_input_features: 32 # <=32. input feature info dim be compressed before Asymm_3d_spconv net
+  # use_norm: True
+  base_size: 64
+
+
+###################
+## Dataset options
+dataset_params:
+  ignore_label: 0
+  return_test: False
+  fixed_volume_space: True
+  label_mapping: "./config/datasets_labels_and_other_properties/sanyi_points.yaml"
+  labelData_bits: 32 # 16,32 - bits number of label data.
+  # labelData_bits: 32 # 16,32 - bits number of label data. 
+  max_volume_space:
+    - 20
+    - 3.1415926
+    - 9
+  min_volume_space:
+    - 0
+    - -3.1415926
+    - -3
+
+
+###################
+## Data_loader options
+train_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/sanyi/points/sequences"
+  imageset: "train"
+  return_ref: True
+  batch_size: 1
+  shuffle: True
+  num_workers: 8 #4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate
+
+val_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/sanyi/points/sequences"
+  imageset: "val"
+  return_ref: True
+  batch_size: 1
+  shuffle: False
+  num_workers: 8 #4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate
+
+test_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/sanyi/points/sequences" 
+  imageset: "ytest" # ytest - test dataset have real labels. test - indicate dataset haven't real labels.
+  return_ref: True
+  batch_size: 1
+  shuffle: False
+  num_workers: 8 #4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate
+
+
+###################
+## Train params
+train_params:
+## model_load_path: "./model_load_dir/model_load.pt"
+  model_load_path: "./save_model/pretrained/model_save.pt"
+  model_save_path: "./save_model/sany/points/model_save.pt"
+  csv_save_path: "./save_model/model_points_save.csv"
+  max_num_epochs: 100
+  val_every_n_steps: 150
+  learning_rate: 0.001

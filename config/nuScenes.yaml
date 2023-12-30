@@ -1,0 +1,78 @@
+# Config format schema number
+format_version: 4
+
+###################
+## Model options
+model_params:
+  num_class: 17
+  output_shape:
+    - 480
+    - 360
+    - 32
+
+  fea_dim: 12 # voxel feature info dim of a point
+  pointNet_fea_dim: 1  #  feature info dim of a point
+  num_input_features: 32  #  <=32. input feature info dim be compressed before Asymm_3d_spconv net
+  base_size: 64  # basic work unit of net
+
+
+###################
+## Dataset options
+dataset_params:
+  label_mapping: "./config/datasets_labels_and_other_properties/nuscenes.yaml"
+  labelData_bits: 8 # 8,other - bits number of label data. 
+  ignore_label: 0
+  return_test: False
+  fixed_volume_space: True
+  max_volume_space:
+    - 50
+    - 3.1415926
+    - 3
+  min_volume_space:
+    - 0
+    - -3.1415926
+    - -5
+
+
+###################
+## Data_loader options
+train_data_loader:
+  data_path: "/home/robot/Documents/dataset/nuscenes/"
+  imageset: "/home/robot/Documents/dataset/nuscenes/nuscenes_infos_train.pkl"
+  return_ref: True
+  batch_size: 1
+  shuffle: True
+  num_workers: 4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate, note: num_workers > 0
+
+val_data_loader:
+  data_path: "/home/robot/Documents/dataset/nuscenes/"
+  imageset: "/home/robot/Documents/dataset/nuscenes/nuscenes_infos_val.pkl"
+  return_ref: True
+  batch_size: 1
+  shuffle: False
+  num_workers: 4
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate, note: num_workers > 0
+
+test_data_loader:
+## data_path: "/data/dataset/semantic_kitti/data_semkitti/dataset/sequences/"
+  data_path: "/home/robot/Documents/dataset/nuscenes/"
+  imageset: "/home/robot/Documents/dataset/nuscenes/nuscenes_infos_test.pkl"
+  return_ref: True
+  batch_size: 1
+  shuffle: False
+  num_workers: 4 # 2,4,8,16 improve gpu utilization rate
+  pin_memory: True # improve gpu utilization rate
+  persistent_workers: True # improve gpu utilization rate, note: num_workers > 0
+
+###################
+## Train params
+train_params:
+  model_load_path: "./save_model/pretrained/model_save.pt"
+  model_save_path: "./save_model/nuscenes/model_save.pt"
+  csv_save_path: "./save_model/model_nuscene_save.csv"
+  max_num_epochs: 100
+  val_every_n_steps: 4599  # 4599
+  learning_rate: 0.001
