@@ -1,0 +1,13 @@
+nohup: ignoring input
+current train file: train.py --config_path config/parameters.yaml --device 2
+parameters file: Namespace(config_path='config/parameters.yaml', device=2)
+1 - 19 class: ['car', 'bicycle', 'motorcycle', 'truck', 'bus', 'person', 'bicyclist', 'motorcyclist', 'road', 'parking', 'sidewalk', 'other-ground', 'building', 'fence', 'vegetation', 'trunk', 'terrain', 'pole', 'traffic-sign']
+output_shape: [480 360  32]
+matched parameter sets: 359, and no matched: 2
+
+  0%|          | 0/19130 [00:00<?, ?it/s]
+  0%|          | 1/19130 [01:04<345:05:54, 64.95s/it]
+  0%|          | 2/19130 [01:06<147:55:48, 27.84s/it]
+  0%|          | 3/19130 [01:08<85:11:58, 16.04s/it] 
+  0%|          | 4/19130 [01:10<55:17:57, 10.41s/it]
+  0%|          | 5/19130 [01:12<39:14:08,  7.39s/it]

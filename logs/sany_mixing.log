@@ -1,0 +1,15 @@
+nohup: ignoring input
+current train file: train.py --config_path config/sany_mixing_parameters.yaml --device 2
+parameters file: Namespace(config_path='config/sany_mixing_parameters.yaml', device=2)
+1 - 7 class: ['ground', 'instructure', 'wall', 'loader', 'materialA', 'materialB', 'person']
+output_shape: [480 360  32]
+matched parameter sets: 361, and no matched: 0
+
+  0%|          | 0/690 [00:00<?, ?it/s]/home/robot/anaconda3/envs/casyfusion/lib/python3.7/site-packages/torch/nn/modules/loss.py:912: UserWarning: Using a target size (torch.Size([1, 480, 360, 32])) that is different to the input size (torch.Size([1, 8, 480, 360, 32])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+  0%|          | 1/690 [01:14<14:13:26, 74.32s/it]
+  0%|          | 2/690 [01:17<6:11:07, 32.37s/it] 
+  0%|          | 3/690 [01:20<3:37:40, 19.01s/it]
+  1%|          | 4/690 [01:23<2:25:27, 12.72s/it]
+  1%|          | 5/690 [01:26<1:45:38,  9.25s/it]

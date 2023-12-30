@@ -1,0 +1,32 @@
+nohup: ignoring input
+current train file: train_nuscene.py --config_path config/nuScenes.yaml --device 0
+parameters file: Namespace(config_path='config/nuScenes.yaml', device=0)
+1 - 16 class: ['movable_object.barrier', 'vehicle.bicycle', 'vehicle.bus.bendy', 'vehicle.car', 'vehicle.construction', 'vehicle.motorcycle', 'human.pedestrian.adult', 'movable_object.trafficcone', 'vehicle.trailer', 'vehicle.truck', 'flat.driveable_surface', 'flat.other', 'flat.sidewalk', 'flat.terrain', 'static.manmade', 'static.vegetation']
+======
+Loading NuScenes tables for version v1.0-trainval...
+Loading nuScenes-lidarseg...
+32 category,
+8 attribute,
+4 visibility,
+64386 instance,
+12 sensor,
+10200 calibrated_sensor,
+2631083 ego_pose,
+68 log,
+850 scene,
+34149 sample,
+2631083 sample_data,
+1166187 sample_annotation,
+4 map,
+34149 lidarseg,
+Done loading in 34.059 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 9.9 seconds.
+======
+output_shape: [480 360  32]
+
+  0%|          | 0/28130 [00:00<?, ?it/s]
+  0%|          | 1/28130 [00:42<335:46:07, 42.97s/it]
+  0%|          | 2/28130 [00:43<142:06:12, 18.19s/it]
+  0%|          | 3/28130 [00:44<79:43:07, 10.20s/it] 

@@ -1,0 +1,5 @@
+nohup: ignoring input
+current train file: train.py --config_path config/sany_points2_parameters.yaml --device 0
+parameters file: Namespace(config_path='config/sany_points2_parameters.yaml', device=0)
+1 - 12 class: ['material', 'clapboard', 'ground', 'loader', 'road-cone', 'person', 'instructure', 'telegraph_poles', 'tree', 'charging_pile', 'excavator', 'speed_bumps']
+output_shape: [735 180  64]
