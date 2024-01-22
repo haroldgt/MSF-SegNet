@@ -5,7 +5,7 @@ This repo contains the source code and dataset for our paper:
 [**PMF-SLAM: Pose-guided and Multi-scale Feature Interaction Based Semantic SLAM for Autonomous Wheel Loader**](https://github.com/haroldgt/MSF-SegNet/)
 <br>
 [paper](https://github.com/haroldgt/MSF-SegNet/) [video](https://www.bilibili.com/video/BV1Vm4y1C75y/)
-![SAMe3d](/Figs/Backbone_work.Png)
+![SAMe3d](/Figs/Backbone_work.jpg)
 
 
 # Step1.Environment Installation
