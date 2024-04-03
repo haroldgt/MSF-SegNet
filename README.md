@@ -1,8 +1,8 @@
-# PMF-SLAM: Pose-guided and Multi-scale Feature Interaction Based Semantic SLAM for Autonomous Wheel Loader
+# PMF-SLAM: Pose-Guided and Multiscale Feature Interaction-Based Semantic SLAM for Autonomous Wheel Loader
 ### State Key Lab of Rail Traffic Control & Safety (BJTU)
 This repo contains the source code and dataset for our paper:
 <br>
-[**PMF-SLAM: Pose-guided and Multi-scale Feature Interaction Based Semantic SLAM for Autonomous Wheel Loader**](https://ieeexplore.ieee.org/document/10405860/)
+[**PMF-SLAM: Pose-Guided and Multiscale Feature Interaction-Based Semantic SLAM for Autonomous Wheel Loader**](https://ieeexplore.ieee.org/document/10405860/)
 <br>
 [paper](https://ieeexplore.ieee.org/document/10405860/)
 ![SAMe3d](/Figs/Backbone_work.jpg)
